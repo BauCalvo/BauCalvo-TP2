@@ -3,11 +3,11 @@ package EJ9;
 
 public class CuentaBancaria {
     private String CBU;
-    private String tipo;
+    private Tipo tipo;
     private double saldo;
     private Persona titular;
 
-    public CuentaBancaria(String tipo, Persona titular) {
+    public CuentaBancaria(Tipo tipo, Persona titular) {
         this.tipo = tipo;
         this.titular = titular;
         this.saldo =0;
@@ -15,7 +15,7 @@ public class CuentaBancaria {
     }
 
     public void generarCBU(){
-        if (tipo.equals("CA"))
+        if (tipo.equals(Tipo.CAJA_DE_AHORRO))
             this.CBU = "11-"+ titular.getDNI()+ "-"+titular.getDNI().charAt(7);
         else this.CBU = "12-"+ titular.getDNI()+ "-"+titular.getDNI().charAt(7);
     }

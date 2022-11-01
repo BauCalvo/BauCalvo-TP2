@@ -3,6 +3,9 @@ package EJ13;
 public class SuperHeroe {
     private String nombre;
     private int fuerza,resistencia,superpoderes;
+    private enum Estado {
+        TRIUNFO,DERROTA,EMPATE
+    }
 
 
     public SuperHeroe(String nombre, int fuerza, int resistencia, int superpoderes) {
@@ -12,14 +15,14 @@ public class SuperHeroe {
         setSuperpoderes(superpoderes);
     }
 
-    public String competir(SuperHeroe sup){
+    public Estado competir(SuperHeroe sup){
         if ((fuerza>sup.getFuerza() && (resistencia>sup.getResistencia() || superpoderes>sup.getSuperpoderes()))||
                 (resistencia > sup.getResistencia() && superpoderes > sup.getSuperpoderes())){
-            return "VICTORIA";
+            return Estado.TRIUNFO;
         } else if ((fuerza<sup.getFuerza() && (resistencia<sup.getResistencia() || superpoderes<sup.getSuperpoderes())||
                 resistencia<sup.getResistencia() && superpoderes<sup.getSuperpoderes())) {
-            return "DERROTA";
-        }else return "EMPATE";
+            return Estado.DERROTA;
+        }else return Estado.EMPATE;
 
     }
 

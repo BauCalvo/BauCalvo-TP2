@@ -1,7 +1,10 @@
 package EJ7;
 
 public class Computadora {
-    private String marca,tipo;
+    private String marca;
+    private enum tipo{
+        DESKTOP,LAPTOP,ALL_IN_ONE
+    }
     private Processador processador;
     private Dvd dvd;
 
